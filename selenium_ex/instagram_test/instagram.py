@@ -36,12 +36,12 @@ class Instagram:
             time.sleep(7)
 
 
-    def search(self,profile):
-        self.sign_in()
-        search_box = self.browser.find_element(By.CLASS_NAME, 'x3qfX')
-        search_box.click()
-        # search_box.send_keys(profile)
-        time.sleep(10)
+    # def search(self,profile):
+    #     self.sign_in()
+    #     search_box = self.browser.find_element(By.CLASS_NAME, 'x3qfX')
+    #     search_box.click()
+    #     # search_box.send_keys(profile)
+    #     time.sleep(10)
 
 
     def sign_in_false(self):
@@ -138,5 +138,5 @@ app = Instagram()
 
 # app.followUser("beratt.afsin")
 
-app.search('berat')
+# app.search('berat')
 
