@@ -5,6 +5,7 @@ from userinfo import username, password,fusername,fpassword
 from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import StaleElementReferenceException, NoSuchWindowException
 from selenium.common.exceptions import NoSuchElementException
+import re
 
 
 class Instagram:
@@ -16,6 +17,11 @@ class Instagram:
         self.password = password
         self.fusername=fusername
         self.fpassword=fpassword
+
+
+    def validate_email(self,username):
+        self.sign_in()
+        return bool(re.match(r'[^@]+@[^@]+\.[^@]+', self.username))
 
 
     def sign_in(self):
@@ -34,6 +40,25 @@ class Instagram:
             second_button = button[1]
             second_button.click()
             time.sleep(7)
+
+
+    def logout(self):
+        self.sign_in()
+        print('aaaaaaa')
+        self.browser.find_element(By.CLASS_NAME, 'x6s0dn4').click()
+        print('bbbbbb')
+        time.sleep(10)
+        buttons = self.browser.find_elements(By.CLASS_NAME, 'x1i10hfl')
+        logout_button_found = False
+        for button in buttons:
+            if button.text == 'Çıkış yap':
+                button.click()
+                logout_button_found = True
+                break
+
+        if not logout_button_found:
+            print("Çıkış yap butonu bulunamadı.")
+
 
 
     # def search(self,profile):
@@ -140,3 +165,4 @@ app = Instagram()
 
 # app.search('berat')
 
+app.logout()
