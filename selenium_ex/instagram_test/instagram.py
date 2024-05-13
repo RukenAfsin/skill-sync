@@ -44,21 +44,39 @@ class Instagram:
 
     def logout(self):
         self.sign_in()
-        print('aaaaaaa')
-        self.browser.find_element(By.CLASS_NAME, 'x6s0dn4').click()
+        div_element = self.browser.find_element(By.CLASS_NAME, "xl5mz7h")
+        div_element.click()
+        time.sleep(5)
         print('bbbbbb')
+        button = self.browser.find_element(By.CSS_SELECTOR, "span.x1lliihq.x193iq5w.x6ikm8r.x10wlt62.xlyipyv.xuxw1ft")
+        button.click()
+        print('Success')
+        # Tarayıcıyı sadece çıkış işlemi tamamlandıktan sonra kapatın
+        self.browser.close()
         time.sleep(10)
-        buttons = self.browser.find_elements(By.CLASS_NAME, 'x1i10hfl')
-        logout_button_found = False
-        for button in buttons:
-            if button.text == 'Çıkış yap':
-                button.click()
-                logout_button_found = True
-                break
 
-        if not logout_button_found:
-            print("Çıkış yap butonu bulunamadı.")
 
+
+
+
+      
+    # def logout(self):
+    #     self.sign_in()
+    #     div_element = self.browser.find_element(By.CLASS_NAME, "xl5mz7h")
+    #     div_element.click()
+    #     time.sleep(5)
+    #     print('bbbbbb')
+    #     buttons = self.browser.find_elements(By.CLASS_NAME, 'x9f619')
+    #     for button in buttons:
+    #         button = self.browser.find_element(By.CSS_SELECTOR, "span.x1lliihq.x193iq5w.x6ikm8r.x10wlt62.xlyipyv.xuxw1ft")
+    #         button.click()
+    #     #    if  button.text=='Çıkış yap':
+    #     #      button.click()
+    #     #      time.sleep(5)
+    #     #      print('Success')
+    #     #    else:
+    #     #     print('Button cant find')
+    #         self.browser.close()
 
 
     # def search(self,profile):
