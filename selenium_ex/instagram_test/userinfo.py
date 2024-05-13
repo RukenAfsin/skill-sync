@@ -1,5 +1,5 @@
-username="izolamer_insaat"
-password="ruken.1221"
+username=""
+password=""
 
 fusername="abc"
 fpassword="123456789"
