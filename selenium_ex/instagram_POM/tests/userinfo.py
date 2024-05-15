@@ -1,7 +1,7 @@
 class UserInfo:
 
-    username=""
-    password=""
+    username="asdfghj"
+    password="asdfg1234"
 
     fusername="abc"
     fpassword="123456789"

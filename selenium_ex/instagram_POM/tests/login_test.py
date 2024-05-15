@@ -1,5 +1,5 @@
 from selenium import webdriver
-from ..pages.login_page import LoginPage
+from login_page import LoginPage
 from userinfo import UserInfo  
 import time
 
