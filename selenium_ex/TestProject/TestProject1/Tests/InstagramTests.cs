@@ -12,6 +12,7 @@ namespace TestProject1.Tests
         public IWebDriver _driver;
         public UserService _userService;
         public HomeService _homeService;
+        public ProfileService _profileService;
         public x.UserInfo _userInfo;
 
         [SetUp]
@@ -21,6 +22,7 @@ namespace TestProject1.Tests
             _driver = new ChromeDriver(driverPath);
             _userService = new UserService(_driver);
             _homeService = new HomeService(_driver);
+            _profileService= new ProfileService(_driver);
             _userInfo = new x.UserInfo();
         }
 
@@ -42,6 +44,24 @@ namespace TestProject1.Tests
         {
             _userService.TrueLogin(_userInfo.Username, _userInfo.Password);
             _homeService.GoProfile();
+        }
+
+        [Test]
+        public void GetFollowing()
+        {
+            _userService.TrueLogin(_userInfo.Username, _userInfo.Password);
+            _homeService.GoProfile();
+            _profileService.GetFollowing();
+           
+        }
+
+        [Test]
+        public void GetFollowers()
+        {
+            _userService.TrueLogin(_userInfo.Username, _userInfo.Password);
+            _homeService.GoProfile();
+            _profileService.GetFollowers();
+
         }
 
 
