@@ -19,6 +19,8 @@ namespace TestProject1.Pages
         public IWebElement SDegil2 => _driver.FindElement(By.ClassName("_a9-z"));
         public IWebElement DahaFazla => _driver.FindElement(By.XPath("//span[text()='Daha fazla']"));
         public IWebElement Logout => _driver.FindElement(By.XPath("//span[text()='Çıkış yap']"));
+        public IWebElement ProfileButton => _driver.FindElement(By.XPath( "//span[text()='Profil']"));
+
 
         public void ClickSecondButtonInsideButton2()
         {
