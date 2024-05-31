@@ -17,6 +17,8 @@ namespace TestProject1.Pages
         }
         public IWebElement ThirdLiElement => _driver.FindElement(By.CssSelector("ul.x78zum5 li:nth-child(3)"));
         public IWebElement SecondLiElement => _driver.FindElement(By.CssSelector("ul.x78zum5 li:nth-child(2)"));
+        public IWebElement GetFollowerSearchButton => _driver.FindElement(By.CssSelector("input[aria-label='Arama Girdisi']"));
+
 
     }
 }

@@ -64,6 +64,15 @@ namespace TestProject1.Tests
 
         }
 
+        [Test]
+        public void SearchFollower()
+        {
+            _userService.TrueLogin(_userInfo.Username, _userInfo.Password);
+            _homeService.GoProfile();
+            _profileService.GetYourFollowers(_userInfo.FollowerName);
+
+        }
+
 
 
         [TearDown]

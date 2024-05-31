@@ -22,6 +22,7 @@ namespace TestProject1.Pages
         public IWebElement ProfileButton => _driver.FindElement(By.XPath( "//span[text()='Profil']"));
 
 
+
         public void ClickSecondButtonInsideButton2()
         {
             var buttons = SDegil2.FindElements(By.TagName("button"));

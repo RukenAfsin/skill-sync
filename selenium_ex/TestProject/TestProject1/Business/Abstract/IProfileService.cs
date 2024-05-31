@@ -10,5 +10,6 @@ namespace TestProject1.Business.Abstract
     {
         public void GetFollowing();
         public void GetFollowers();
+        public void GetYourFollowers(string follower);
     }
 }

@@ -43,10 +43,11 @@ namespace TestProject1.Business.Concrete
                 Thread.Sleep(7000);
 
                 string followingCount = _profilePage.ThirdLiElement.Text;
-                string csvFilePath = @"C:\Users\User\Desktop\Applications\SkillSync\selenium_ex\TestProject\TestProject1\following.csv"; // CSV dosyasının yolu
+                string csvFilePath = @"C:\Users\User\Desktop\Applications\SkillSync\selenium_ex\TestProject\TestProject1\following.csv"; 
                 WriteDataToCSV(csvFilePath, followingCount);
             }
         }
+
 
         private void WriteDataToCSV(string filePath, string data)
         {
@@ -54,6 +55,19 @@ namespace TestProject1.Business.Concrete
             {
                 writer.WriteLine("Count");
                 writer.WriteLine(data);
+            }
+        }
+
+        public void GetYourFollowers(string follower)
+        {
+            WebDriverWait wait = new WebDriverWait(_driver, TimeSpan.FromSeconds(10));
+            wait.Until(ExpectedConditions.ElementIsVisible(By.CssSelector("input[aria-label='Arama Girdisi']")));
+            if (_profilePage.SecondLiElement.Displayed)
+            {
+                _profilePage.SecondLiElement.Click();
+                Thread.Sleep(7000);
+                _profilePage.GetFollowerSearchButton.SendKeys(follower);
+
             }
         }
     }

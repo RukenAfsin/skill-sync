@@ -10,11 +10,13 @@ namespace TestProject1.UserInfo
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string FollowerName { get; set; }
 
         public UserInfo()
         {
             Username = "";
             Password = "";
+            FollowerName = "";
         }
     }
 }
