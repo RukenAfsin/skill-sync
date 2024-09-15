@@ -1,11 +1,7 @@
-from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from base_page import Base
-from userinfo import UserInfo
-import time
-
 
 class LoginPage(Base):
     def __init__(self, browser):
@@ -23,10 +19,8 @@ class LoginPage(Base):
     def click_button(self):
         self.browser.find_element(*self.login_button).click()
 
-    def login(self, username,password):
+    def login(self, username, password):
         self.enter_username(username)
         self.enter_password(password)
         self.click_button()
-        WebDriverWait(self.browser, 10).until(EC.url_contains("instagram.com"))
-
-
+        WebDriverWait(self.browser, 10).until(EC.url_to_be("https://www.instagram.com/"))
