@@ -18,6 +18,6 @@ class LoginTest:
         self.browser.quit() 
 
 if __name__ == "__main__":
-    browser = webdriver.Chrome()  # Tarayıcıyı başlat
-    test = LoginTest(browser)  # Tarayıcı nesnesini geç
+    browser = webdriver.Chrome()  
+    test = LoginTest(browser)  
     test.test_login()

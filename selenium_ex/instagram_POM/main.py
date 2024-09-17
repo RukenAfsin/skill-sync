@@ -8,6 +8,7 @@ def main():
         test = LoginTest(browser)  # Tarayıcı nesnesini geç
         test.test_login()  # Testi çalıştır
         
+        
     except Exception as e:
         print(f"Bir hata oluştu: {e}")
         

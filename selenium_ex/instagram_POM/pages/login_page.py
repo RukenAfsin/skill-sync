@@ -10,17 +10,10 @@ class LoginPage(Base):
         self.password_textbox = (By.NAME, "password")
         self.login_button = (By.XPATH, '//*[@id="loginForm"]/div/div[3]/button')
         
-    def enter_username(self, username):
-        self.browser.find_element(*self.username_textbox).send_keys(username)
-
-    def enter_password(self, password):
-        self.browser.find_element(*self.password_textbox).send_keys(password)
-
-    def click_button(self):
-        self.browser.find_element(*self.login_button).click()
 
     def login(self, username, password):
-        self.enter_username(username)
-        self.enter_password(password)
-        self.click_button()
-        WebDriverWait(self.browser, 10).until(EC.url_to_be("https://www.instagram.com/"))
+        self.enter_text(*self.username_textbox, username) 
+        self.enter_text(*self.password_textbox, password)
+        self.click(*self.login_button)
+        self.wait_for_element(By.XPATH, '//div[text()="Ana Sayfa"]', timeout=10)
+
