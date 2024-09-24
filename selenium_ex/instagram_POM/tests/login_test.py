@@ -11,9 +11,10 @@ class LoginTest:
         self.browser.get("https://www.instagram.com/")  
         
         login_page = LoginPage(self.browser)  
+        self.browser.maximize_window()  
         login_page.login(UserInfo.username, UserInfo.password)  
         
-        self.browser.maximize_window()  
+       
         time.sleep(10) 
         self.browser.quit() 
 

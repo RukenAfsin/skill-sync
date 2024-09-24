@@ -9,13 +9,19 @@ import time
 
 class HomePage(Base):
 
-    def __init(self,browser):
+    def __init__(self,browser):
         super().__init__(browser)
-        self.profile_button=(By.XPATH, '//span[contains(@class="x1lliihq") and text()="Profil"]')
+        # self.profile_button=(By.XPATH, "//span[text()='Profil' and contains(@class, 'x1lliihq')]")
+        self.profile_button = (By.XPATH, "//span[contains(@class, 'x1lliihq') and normalize-space(text())='Profil']")
+
         self.followers=(By.XPATH, '//a[contains(., "takipçi")]')
-        self.visible_follower=(By.XPATH,'//span[@class="_ap3a _aaco _aacw _aacx _aad7 _aade" and contains(text(), "brn.afsn")]')
-       
+        self.visible_follower=(By.XPATH,'//span[@class="_ap3a _aaco _aacw _aacx _aad7 _aade" and contains(text(), "brn.afsn")]')       
+
+
     def bar_click(self):
+        print('görülmeye calısıylıyor')
+        self.wait_for_element(*self.profile_button)
+        print('görüldü')
         self.click(*self.profile_button)
         self.just_wait()
 
